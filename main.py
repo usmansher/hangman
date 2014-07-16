@@ -46,14 +46,6 @@ def drawLetter(screen, font, word, guess):
             screen.blit(letter, (x, 300))
         x += 30
         
-# Get Unique Letters
-def getUniqLetters(word):
-    unique= ''
-    
-    for letter in word:
-        if letter not in unique:
-            unique += letter
-    return unique
 
 # Gallows
 def drawGallows(screen):
@@ -95,7 +87,7 @@ def main():
     
     body = ['rLeg', 'lLeg', 'rArm', 'lArm', 'body', 'head'] # Body Parts
     correct = '' 
-    unique = getUniqLetters(word)# Get Unique Words from the Word
+    unique = set(word)# Get Unique Words from the Word
     pygame.display.update()# Update The Display
     while body and len(correct) < len(unique): # While Bodyparts or Correct Guess is less than Unique Words
         # Keyboard Events
